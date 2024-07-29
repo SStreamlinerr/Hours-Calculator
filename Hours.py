@@ -31,8 +31,9 @@ def calc_pay(hour,minToHr,hrlyRate):
     return pay
 
 def display(pay,minute,hour):
-    print("You worked for",hour,"hours and",minute,"minutes")
-    print("You should be paid £", pay)
+    with open("Hours.txt", "a") as f:
+        print("You worked for", hour,"hours and", minute,"minutes", file=f)
+        print("You should be paid", pay, "pounds", file=f)
 
 #Main program
 intro()
