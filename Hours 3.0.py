@@ -1,4 +1,5 @@
 # Hours Calculator 3.0
+#test edit - get rid of later
 
 def get_details():
     shifts=int(input("\nHow many shifts did you work? "))
