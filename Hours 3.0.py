@@ -72,7 +72,8 @@ def total_hours(hours, minutes, shifts, rate):
 
         if choice == 1:
             #get location of file
-            file_location = input("\nFull path of hours file? ")
+            #file_location = input("\nFull path of hours file? ")
+            file_location = "/home/struan-mckenzie/Desktop/Hours.txt"
 
             month = input("\nWhich month/months were these shifts completed during? ")
 
@@ -103,7 +104,8 @@ def total_hours(hours, minutes, shifts, rate):
             choice = int(input())
 
         if choice == 1:
-            file_location = input("\nFull path of hours file? ")
+            #file_location = input("\nFull path of hours file? ")
+            file_location = "/home/struan-mckenzie/Desktop/Hours.txt"
             month = input("\nWhich month/months were these shifts completed during? ")
 
             with open(file_location,"a+") as writefile:
