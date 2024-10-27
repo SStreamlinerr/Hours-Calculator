@@ -44,9 +44,9 @@ def get_details():
         hours.append(hour)
         minutes.append(minute)
     
-    return hours,minutes,shifts,rate
+    return hours, minutes, shifts, rate
 
-def total_hours(hours,minutes,shifts,rate):
+def total_hours(hours, minutes, shifts, rate):
 
     print("\nView total hours ······················ press 1"
           "\nView hours for each shift seperately ·· press 2")
@@ -57,10 +57,10 @@ def total_hours(hours,minutes,shifts,rate):
         choice = int(input())
 
     if choice == 1:
-        totalHours,pay = calculate_hours_pay(shifts,hours,minutes)
+        totalHours, pay = calculate_hours_pay(shifts, hours, minutes)
 
-        print("\nYou worked for",totalHours,"hours")
-        print("You have earned: £"+str(pay))
+        print("\nYou worked for", totalHours, "hours")
+        print("You have earned: £" + str(pay))
 
         print("\nPrint hours to file ····· press 1"
               "\nExit program ············ press 2")
@@ -77,7 +77,7 @@ def total_hours(hours,minutes,shifts,rate):
             month = input("\nWhich month/months were these shifts completed during? ")
 
             with open(file_location,"a+") as writefile:
-                line = month + ":\nHours: " + str(totalHours) + "\nPay: " + "£"+str(pay)
+                line = month + ":\nHours: " + str(totalHours) + "\nPay: " + "£" + str(pay)
                 writefile.write("\n\n" + line)
             writefile.close
             input("Written to file. Press enter to exit")
@@ -86,13 +86,13 @@ def total_hours(hours,minutes,shifts,rate):
         else:
             exit()
 
-    elif choice == 2:
+    else:
         for i in range(shifts):
-            print("\nShift",str(i+1)+"/"+str(shifts),":")
-            print("You worked for",hours[i],"hours and",minutes[i],"minutes")
+            print("\nShift", str(i+1) + "/" + str(shifts), ":")
+            print("You worked for", hours[i], "hours and", minutes[i],"minutes")
 
-        totalHours,pay = calculate_hours_pay(shifts,hours,minutes)
-        print("You earned: £"+str(pay))
+        totalHours, pay = calculate_hours_pay(shifts, hours, minutes)
+        print("You earned: £" + str(pay))
 
         print("\nPrint hours to file ····· press 1"
               "\nExit program ············ press 2")
@@ -109,7 +109,7 @@ def total_hours(hours,minutes,shifts,rate):
             with open(file_location,"a+") as writefile:
                 writefile.write("\n\n" + month + ":\n")
                 for i in range(len(hours)):
-                    line = str("Shift " + str(i+1) + "/" + str(shifts) + ": You worked " + str(hours[i]) + " hours\n")
+                    line = str("Shift " + str(i + 1) + "/" + str(shifts) + ": You worked " + str(hours[i]) + " hours and " + str(minutes[i]) + " minutes\n")
                     writefile.write(line)
                 writefile.write("Pay: £" + str(pay))
             writefile.close
@@ -118,19 +118,19 @@ def total_hours(hours,minutes,shifts,rate):
         else:
             exit()
 
-def calculate_hours_pay(shifts,hours,minutes):
+def calculate_hours_pay(shifts, hours, minutes):
     #set total time to 0
     tHours=0
     tMinutes=0
 
     #calculate total
     for i in range(shifts):
-        tHours = tHours+hours[i]
-        tMinutes = tMinutes+minutes[i]
-    min2Hr = tMinutes/60
-    totalHours = tHours+min2Hr
-    pay = totalHours*rate
-    return totalHours,pay
+        tHours = tHours + hours[i]
+        tMinutes = tMinutes + minutes[i]
+    min2Hr = tMinutes / 60
+    totalHours = tHours + min2Hr
+    pay = totalHours * rate
+    return totalHours, pay
     
 
 
@@ -139,6 +139,6 @@ def calculate_hours_pay(shifts,hours,minutes):
 print("This program will determine how many hours you have done and how much you should be paid."
       "\nPlease input in 24 hour format, e.g: eleven thirty five is 1135")
 
-hours,minutes,shifts,rate=get_details()
+hours, minutes, shifts, rate = get_details()
 
-totalHours,pay=total_hours(hours,minutes,shifts,rate)
+totalHours, pay = total_hours(hours, minutes, shifts, rate) 
